@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wonky Horse</title>
+        <link rel='stylesheet' type='text/css' href='style.css'>
+    </head>
+    <body >        
+        <div class='page-wrapper'>
+            <div id='header-section' class='header-section'>
+                <!-- Image Header -->
+                <div class='image-section'>
+                    <img src='pasture.jpg' alt='pasture' class='pasture' id='pasture'>
+                    <img src='horse.png' alt='horse' class='horse' id='horse'>
+                </div>
+                <!-- Nav Bar -->
+                <div class='nav-section'>
+                    <div class='nav-large' id='nav-large'>
+                        <div class='button-container'>
+                            <a href="#" class='button' >Home</a>
+                            <a href="#portfolio" class='button' a href="#portfolio">Portfolio</a>
+                            <a href="#home" class='button'></a>
+                            <a href="#about" class='button'>About</a>
+                            <a href="#contact" class='button'>Contact</a>
+                        </div>
+                    </div>
+                    <div class='nav-small' id='nav-small'>
+                      <button class='button-dropdown'>Menu</button>
+                      <div class='dropdown-button-container'>
+                        <a href="#" class='button'>Home</a>
+                        <a href="#portfolio" class='button'>Portfolio</a>
+                        <a href="#about" class='button'>About</a>
+                        <a href="#contact" class='button'>Contact</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div id='main-section' class='main-section'>            
+                <div id='pages-section'>
+                    <div id='home' style='padding: 25%; height: 400px' class='background-gradient'>
+                      <h1>Welcome to the Wonky Horse!</h1>
+                      <p style>The Wonky Horse got its name simply as there aren't many cross sections between people who are mildly obsessed with ponies, and also technology. One day The Wonky Horse will be a full-fledged website and horse farm!</p>
+                    </div>
+                    <div id='portfolio' style='height:2500px;padding:5%;  background:#b3d67c;'>
+                      <h1>Portfolio</h1>
+                      <h2>Software Development</h2>
+                      <h3>Icon Generator</h3>
+                      <p>The Icon Generator is a custom icon creation tool that I made using C#, <a href="http://www.monogame.net/" target="_blank">MonoGames</a>, and <a href="http://www.assimp.org/" target="_blank">Assimp C# Bindings</a>. In game development, it is often necessary to create icons for a large number of assets, when done by hand this becomes a time consuming task. This tool is designed allow artists to automatically create high quality icons with a border while exporting the asset from Maya or by batch creation. It allows the angle, padding and framing to be adjusted based on data driven asset type information. This information could be assigned in the .fbx file as an attribute for specific overrides or based on the parent types generic settings stored in a .json file. As this was a tool made for an employer I am unable to provide the tool itself but am happy to share more code samples from the project as well as more in depth information upon request.</p>
+                      <img src='iconGenerator.jpg'>
+                      <h3>Puppet Pony</h3>
+                      <p> The puppet pony is in development and is a <a href="http://box2d.org/" target="_blank">JavaScript bound Box2D</a> project. It will eventually take the place of the top scene for the website once complete. Go ahead and select a part and move him around a bit!
+                      <div id="puppet"><iframe name="puppet" src="https://www.wonkyhorse.com/puppet/puppet.html" scrolling="no" width="800" height="550"></iframe></div>
+
+                      <h2>Technical Art</h2>
+                      <p>While I am moving towards a strictly software development career path, I have years of experience as a Technical Artist which allowed me the opportunity to work on a large variety of tasks involved with Game Development. The following is my last demo reel created December of 2016.</p>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/e6C7-T3j0L0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div id='about' style='height:400px; padding:25%; background:#ccff99;color:black;'>
+                      <h1>About</h1>
+                      <p>Hello, I am Kristen Griffin and the Wonky Horse is home to my portfolio and play space.
+                      I am on a learning adventure, as such I will be adding to my portfolio as well as the interactivity and look of this site. 
+                      Since I am more of a coder type, I owe thanks to Leanne Reed for her help in making the artwork for this page.</p>
+                    </div>
+                    <div id='contact' style='height:400px; padding:25%;  background:#b3d67c;'>
+                      <h1>Contact</h1>
+                      <p>Kristen Griffin</p>
+                      <p>kristen.sue.griffin@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <script>
+            // When the user scrolls down 20px from the top of the document, slide down the navbar
+            window.onscroll = function() {scrollFunction()};
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById('pasture').style.display = 'none';
+                    document.getElementById('horse').style.left = '45%';
+                    document.getElementById('horse').style.width = '50px';
+                } else {
+                    document.getElementById('horse').style.left = '38%';
+                    document.getElementById('horse').style.width = '25%';
+                    document.getElementById('pasture').style.display = 'block';
+                    placeSections();
+                }                
+            }
+            // placement of content function
+            function placeSections(){
+                var contentPlacement = document.getElementById('header-section').getBoundingClientRect().bottom;
+                document.getElementById('main-section').style.paddingTop =  (contentPlacement+'px');
+            }            
+            // Placement of content on resize
+            window.addEventListener('resize', () => { placeSections()});
+            // Placement of content on start
+            (function() {placeSections();
+            })();
+        </script>
+    </body>
+    <footer id='footer-section' style='position:relative;'>
+         <p>Thanks for visiting!</p>
+    </footer>
+</html>
